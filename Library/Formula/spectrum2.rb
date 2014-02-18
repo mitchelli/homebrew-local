@@ -22,10 +22,18 @@ class Spectrum < Formula
       s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
     end
 
+    inreplace 'spectrum/src/*.cfg' do |s|
+      s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
+      s.gsub! "/usr/bin", "#{prefix}/bin"
+    end
+
     inreplace 'spectrum_manager/src/CMakeLists.txt' do |s|
       s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
     end
 
+    inreplace 'spectrum_manager/src/spectrum_manager.cfg' do |s|
+      s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
+    end
     
     args = [
 #            "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}",
