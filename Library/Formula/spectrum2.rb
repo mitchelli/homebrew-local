@@ -12,13 +12,14 @@ class Spectrum < Formula
   depends_on 'protobuf'
   depends_on 'libevent'
   depends_on 'log4cxx'
+  depends_on 'popt'
   depends_on 'mysql-connector-c' => :optional
   depends_on 'postgresql' => :optional
 
   def install
     
     args = [
-            "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}",
+#            "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}",
             "-DENABLE_SKYPE=no",
             "-DENABLE_YAHOO2=no",
             "-DENABLE_SMSTOOLS3=no",
@@ -32,8 +33,9 @@ class Spectrum < Formula
     if not build.with? 'postgresql'
       args << "-DENABLE_PQXX=no"
     end
-    system "cmake .", *args
-    system "make"
+
+    ENV.deparallelize
+    system "cmake", ".", *(std_cmake_args + args)
     system "make install"
   end
 end
