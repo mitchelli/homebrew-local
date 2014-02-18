@@ -22,7 +22,7 @@ class Spectrum < Formula
       s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
     end
 
-    inreplace 'spectrum/src/*.cfg' do |s|
+    inreplace %w(spectrum/src/sample2_gateway.cfg spectrum/src/sample2_gateway.cfg) do |s|
       s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
       s.gsub! "/usr/bin", "#{prefix}/bin"
     end
