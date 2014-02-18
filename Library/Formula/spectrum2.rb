@@ -17,6 +17,15 @@ class Spectrum < Formula
   depends_on 'postgresql' => :optional
 
   def install
+
+    inreplace 'spectrum/src/CMakeLists.txt' do |s|
+      s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
+    end
+
+    inreplace 'spectrum_manager/src/CMakeLists.txt' do |s|
+      s.gsub! "/etc", "#{HOMEBREW_PREFIX}/etc"
+    end
+
     
     args = [
 #            "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}",
