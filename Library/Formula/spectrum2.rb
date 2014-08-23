@@ -8,7 +8,7 @@ class Spectrum < Formula
 
   depends_on 'cmake' => :build
   depends_on 'libswiften'
-  depends_on 'libpurple'
+  depends_on 'finch' => "purpleOnly"
   depends_on 'protobuf'
   depends_on 'libevent'
   depends_on 'log4cxx'
