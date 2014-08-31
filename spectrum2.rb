@@ -1,6 +1,6 @@
 require 'formula'
 
-class Spectrum < Formula
+class Spectrum2 < Formula
   homepage 'http://spectrum.im/'
   url 'https://github.com/downloads/hanzz/libtransport/spectrum-2.0.0-beta2.tar.gz'
   sha1 'f039a2467316d4e7952bae07480620285aaae22a'
